@@ -7,7 +7,7 @@ class YDP
     private $debug = false;
     private $info, $formats, $exploded_encodes = [];
 
-    function __construct($vid_id = '', $download = false, $debug = false)
+    function __construct($vid_id = '', $debug = false)
     {
         $this->debug = $debug;
         $this->vid_id = $vid_id;

@@ -2,4 +2,4 @@
 
 require('ydp.class.php');
 
-new YDP('-YGDyPAwQz0', false, false);
+new YDP('-YGDyPAwQz0', false);
