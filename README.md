@@ -15,3 +15,7 @@ ID          | Default | Type    | Description
 ----------- | ------- | ------- | ------------
 `$vid_id`   | ''      | String  | The ID of the video, e.g. `-YGDyPAwQz0`
 `$debug`    | false   | Boolean | Whether the class should be dumped with `var_dump`
+
+## Example
+
+![Example Image](https://cdn.pximg.xyz/ced3b11ae13747a506e4a74525b03eae.png)
