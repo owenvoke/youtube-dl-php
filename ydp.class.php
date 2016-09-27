@@ -81,6 +81,7 @@ class YDP
     {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $URL);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         $tmp = curl_exec($ch);
         curl_close($ch);
@@ -150,11 +151,9 @@ class YDP
             echo '</table></div>';
 
             if ($this->debug) {
-                echo '<div role="tabpanel" class="tab-pane" id="debug">';
-                echo '<pre>';
-                $this->dump();
-                echo '</pre>';
-                echo '</div>';
+                echo '<div role="tabpanel" class="tab-pane" id="debug"><pre>';
+                var_dump($this);
+                echo '</pre></div>';
             }
             echo '</div>';
             ?>
@@ -162,10 +161,5 @@ class YDP
         </body>
         </html>
         <?php
-    }
-
-    function dump()
-    {
-        var_dump($this);
     }
 }
