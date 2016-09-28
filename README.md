@@ -19,3 +19,8 @@ ID          | Default | Type    | Description
 ## Example
 
 ![Example Image](https://cdn.pximg.xyz/ced3b11ae13747a506e4a74525b03eae.png)
+
+## Related
+
+[youtube-dl-php User Script](https://greasyfork.org/en/scripts/23560)  
+[![On YouTube](https://cdn.pximg.xyz/e891e90ea61b38121245472727470565.png)](https://greasyfork.org/en/scripts/23560)  
