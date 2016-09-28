@@ -2,6 +2,8 @@
 
 A quick and easy YouTube downloader/parser written in PHP.
 
+Demo: https://pxstat.us/youtube-dl-php/
+
 ## Usage:
 
 - `include` or `require` the `ydp.class.php` file  
