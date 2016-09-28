@@ -7,7 +7,7 @@ class YDP
     private $debug = false;
     private $info, $formats, $exploded_encodes = [];
 
-    function __construct($vid_id = '', $debug = false)
+    protected function __construct($vid_id = '', $debug = false)
     {
         $this->debug = $debug;
         $this->vid_id = $vid_id;
@@ -15,7 +15,7 @@ class YDP
         $this->display();
     }
 
-    function init()
+    protected function init()
     {
         if (isset($this->vid_id) && $this->vid_id !== '') {
             if (preg_match('/^https:\/\/w{3}?.youtube.com\//', $this->vid_id)) {
@@ -52,7 +52,7 @@ class YDP
         $this->info_url = 'https://www.youtube.com/get_video_info?&video_id=' . $this->vid_id . '&asv=3&el=detailpage&hl=en_US';
         $this->info_url = $this->GET($this->info_url);
 
-        $url = $url_encoded_fmt_stream_map = $type = $title = '';
+        $url = $type = '';
         parse_str($this->info_url, $this->info);
 
         $this->info = (object)$this->info;
@@ -77,7 +77,7 @@ class YDP
 
     }
 
-    function GET($URL)
+    protected function GET($URL)
     {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $URL);
@@ -88,7 +88,7 @@ class YDP
         return $tmp;
     }
 
-    function display()
+    public function display()
     {
         ?>
         <!DOCTYPE html>
