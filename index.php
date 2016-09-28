@@ -1,5 +1,5 @@
 <?php
 
-require('ydp.class.php');
+require('./ydp.class.php');
 
 new YDP('-YGDyPAwQz0', false);
