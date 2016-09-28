@@ -50,7 +50,7 @@ class YDP
         }
 
         $this->info_url = 'https://www.youtube.com/get_video_info?&video_id=' . $this->vid_id . '&asv=3&el=detailpage&hl=en_US';
-        $this->info_url = $this->GET($this->info_url);
+        $this->info_url = $this->get($this->info_url);
 
         $url = $type = '';
         parse_str($this->info_url, $this->info);
@@ -77,7 +77,7 @@ class YDP
 
     }
 
-    protected function GET($URL)
+    protected function get($URL)
     {
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $URL);
