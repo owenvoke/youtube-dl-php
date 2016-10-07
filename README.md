@@ -2,7 +2,7 @@
 
 A quick and easy YouTube downloader/parser written in PHP.
 
-Demo: https://pxstat.us/youtube-dl-php/
+Demo: https://youtube-dl-php.pxgamer.xyz
 
 ## Usage:
 
