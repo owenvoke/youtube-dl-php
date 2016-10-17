@@ -2,6 +2,8 @@
 
 A quick and easy YouTube downloader/parser written in PHP.
 
+[![GitHub release](https://img.shields.io/github/release/PXgamer/youtube-dl-php.svg)](https://github.com/PXgamer/youtube-dl-php/releases/latest) [![Scrutinizer Build](https://img.shields.io/scrutinizer/build/g/PXgamer/youtube-dl-php.svg)](https://scrutinizer-ci.com/g/PXgamer/youtube-dl-php/build-status/master) [![SensioLabs Insight](https://img.shields.io/sensiolabs/i/6d27dff5-bbde-414d-b45e-9a2d51b6dc6b.svg)](https://insight.sensiolabs.com/projects/6d27dff5-bbde-414d-b45e-9a2d51b6dc6b)
+
 Demo: https://youtube-dl-php.pxgamer.xyz
 
 ## Usage:
