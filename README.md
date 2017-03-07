@@ -8,8 +8,13 @@ Demo: https://youtube-dl-php.pxgamer.xyz
 
 ## Usage:
 
-- `include` or `require` the `ydp.class.php` file  
-- Call the `YDP` class using `$ydp = new YDP ('id');`
+- Install via Composer using `composer require pxgamer/youtube-dl-php`
+- Require the `src/App.php` and `src/Downloader.php` files
+
+Then call the `Downloader` class using:
+```php
+$video = new pxgamer\YDP\Downloader(VIDEO_ID_OR_URL);
+```
 
 ## Parameters:
 
@@ -17,8 +22,7 @@ Demo: https://youtube-dl-php.pxgamer.xyz
 
 ID          | Default | Type    | Description
 ----------- | ------- | ------- | ------------
-`$vid_id`   | ''      | String  | The ID of the video, e.g. `-YGDyPAwQz0`
-`$debug`    | false   | Boolean | Whether the class should be dumped with `var_dump`
+`$vid_id`   | ''      | String  | The ID or URL of the video, e.g. `-YGDyPAwQz0`
 
 ## Example
 
