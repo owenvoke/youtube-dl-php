@@ -6,6 +6,7 @@ Demo: https://youtube-dl-php.pxgamer.xyz
 
 ## Usage:
 
+- Start a new instance of the site with Composer using `composer create-project pxgamer/youtube-dl-php`
 - Install via Composer using `composer require pxgamer/youtube-dl-php`
 - Require the `src/App.php` and `src/Downloader.php` files
 
@@ -24,5 +25,4 @@ ID          | Default | Type    | Description
 
 ## Related
 
-[youtube-dl-php User Script](https://greasyfork.org/en/scripts/23560)  
-[![On YouTube](https://cdn.pximg.xyz/e891e90ea61b38121245472727470565.png)](https://greasyfork.org/en/scripts/23560)  
+[User Script for YouTube](https://greasyfork.org/en/scripts/23560)
