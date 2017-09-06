@@ -65,12 +65,11 @@ class Downloader
         $url = $type = '';
         parse_str($this->info_url, $this->info);
 
-        $this->info = (object)$this->info;
-        if (!isset($this->info->url_encoded_fmt_stream_map)) {
+        if (!isset($this->info['url_encoded_fmt_stream_map'])) {
             return ['success' => false, 'error' => 'Invalid YouTube ID provided.'];
         }
 
-        $this->exploded_encodes = explode(',', $this->info->url_encoded_fmt_stream_map);
+        $this->exploded_encodes = explode(',', $this->info['url_encoded_fmt_stream_map']);
 
         $i = 0;
         $ipbits = $ip = $expire = $sig = $quality = $itag = '';
@@ -88,8 +87,8 @@ class Downloader
             $i++;
         }
 
-        if (isset($this->info->rvs)) {
-            parse_str($this->info->rvs, $this->rvs);
+        if (isset($this->info['rvs'])) {
+            parse_str($this->info['rvs'], $this->rvs);
         }
 
         return ['success' => true, 'error' => null];
