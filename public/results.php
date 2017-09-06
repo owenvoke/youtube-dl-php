@@ -13,7 +13,7 @@ if (!isset($_REQUEST['id']) || $_REQUEST['id'] == '') {
 
 $video = new pxgamer\YDP\Downloader($_REQUEST['id']);
 
-if ($video->status['status'] == 'failed') {
+if (!$video->status['success']) {
     header('Location: index.php');
 }
 
@@ -30,11 +30,15 @@ if ($video->status['status'] == 'failed') {
 </head>
 <body>
 <div class="container">
-    <h1><?= $video->info->title ?></h1>
-
-    <div class="form-group">
-        <img class="img-thumbnail" src="<?= $video->info->iurlmq ?>"/>
+    <div class="page-header">
+        <h1><?= $video->info->title ?></h1>
     </div>
+
+    <?php if (isset($video->rvs['iurlhq'])) { ?>
+        <div class="form-group">
+            <img class="img-thumbnail" src="<?= $video->rvs['iurlhq'] ?>"/>
+        </div>
+    <?php } ?>
 
     <table class="table">
         <tr>
@@ -42,8 +46,9 @@ if ($video->status['status'] == 'failed') {
                 Video ID
             </th>
             <td>
-                <a target="_blank" href="https://www.youtube.com/watch/?v=<?= $video->info->video_id ?>">
-                    <?= $video->info->video_id ?> <span class="fa fa-fw fa-link"></span>
+                <a target="_blank" href="<?= \pxgamer\YDP\App::YOUTUBE_URL ?>/watch/?v=<?= $video->info->video_id ?>">
+                    <span><?= $video->info->video_id ?></span>
+                    <span class="fa fa-fw fa-link"></span>
                 </a>
             </td>
         </tr>
@@ -53,7 +58,8 @@ if ($video->status['status'] == 'failed') {
             </th>
             <td>
                 <a target="_blank" href="<?= \pxgamer\YDP\App::YOUTUBE_URL ?>/channel/<?= $video->info->ucid ?>">
-                    <?= $video->info->author ?> <span class="fa fa-fw fa-link"></span>
+                    <span><?= $video->info->author ?></span>
+                    <span class="fa fa-fw fa-link"></span>
                 </a>
             </td>
         </tr>
