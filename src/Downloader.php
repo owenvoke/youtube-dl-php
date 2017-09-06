@@ -16,34 +16,14 @@ class Downloader
 
     protected function init()
     {
-        if (isset($this->vid_id) && $this->vid_id !== '') {
-            if (preg_match('/^https:\/\/w{3}?.youtube.com\//', $this->vid_id)) {
-                $url = parse_url($this->vid_id);
-                $this->vid_id = null;
-                if (is_array($url) && count($url) > 0 && isset($url['query']) && !empty($url['query'])) {
-                    $parts = explode('&', $url['query']);
-                    if (is_array($parts) && count($parts) > 0) {
-                        foreach ($parts as $p) {
-                            $pattern = '/^v\=/';
-                            if (preg_match($pattern, $p)) {
-                                $this->vid_id = preg_replace($pattern, '', $p);
-                                break;
-                            }
-                        }
-                    }
-                    if (!$this->vid_id) {
-                        return ['status' => 'failed', 'error' => 'no video id passed in'];
-                    }
-                } else {
-                    return ['status' => 'failed', 'error' => 'invalid url'];
-                }
-            } elseif (preg_match('/^https?:\/\/youtu.be/', $this->vid_id)) {
-                $this->vid_id = parse_url($this->vid_id);
-                $this->vid_id = preg_replace('/^\//', '', $this->vid_id['path']);
-            }
-        } else {
-            return ['status' => 'failed', 'error' => 'no video id passed in'];
+        $matched = preg_match('/(?:youtube\.com\/\S*(?:(?:\/e(?:mbed))?\/|watch\?(?:\S*?&?v\=))|youtu\.be\/)([a-zA-Z0-9_-]{6,11})/',
+            $this->vid_id, $matches);
+
+        if (!$matched || empty($matches)) {
+            return ['success' => false, 'error' => 'Invalid YouTube ID provided.'];
         }
+
+        $this->vid_id = $matches[1];
 
         $this->info_url = App::YOUTUBE_URL . '/get_video_info?&video_id=' . $this->vid_id . '&asv=3&el=detailpage&hl=en_US';
         $this->info_url = $this->get($this->info_url);
@@ -53,7 +33,7 @@ class Downloader
 
         $this->info = (object)$this->info;
         if (!isset($this->info->url_encoded_fmt_stream_map)) {
-            return ['status' => 'failed', 'error' => 'invalid id'];
+            return ['success' => false, 'error' => 'Invalid YouTube ID provided.'];
         }
 
         $this->exploded_encodes = explode(',', $this->info->url_encoded_fmt_stream_map);
@@ -74,7 +54,7 @@ class Downloader
             $i++;
         }
 
-        return ['status' => 'success', 'error' => false];
+        return ['success' => true, 'error' => null];
     }
 
     protected function get($URL)
