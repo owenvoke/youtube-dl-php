@@ -6,7 +6,7 @@ class Downloader
 {
 
     public $vid_id, $info_url = '';
-    public $info, $formats, $exploded_encodes, $status = [];
+    public $info, $formats, $exploded_encodes, $status, $rvs = [];
 
     public function __construct($vid_id = '')
     {
@@ -52,6 +52,10 @@ class Downloader
             $this->formats[$i]['ipbits'] = $ipbits;
             $this->formats[$i]['ip'] = $ip;
             $i++;
+        }
+
+        if (isset($this->info->rvs)) {
+            parse_str($this->info->rvs, $this->rvs);
         }
 
         return ['success' => true, 'error' => null];
