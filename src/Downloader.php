@@ -2,18 +2,52 @@
 
 namespace pxgamer\YDP;
 
+/**
+ * Class Downloader
+ * @package pxgamer\YDP
+ */
 class Downloader
 {
 
+    /**
+     * @var string
+     */
+    /**
+     * @var string
+     */
     public $vid_id, $info_url = '';
+    /**
+     * @var array
+     */
+    /**
+     * @var array
+     */
+    /**
+     * @var array
+     */
+    /**
+     * @var array
+     */
+    /**
+     * @var array
+     */
     public $info, $formats, $exploded_encodes, $status, $rvs = [];
 
+    /**
+     * Downloader constructor.
+     * @param string $vid_id
+     */
     public function __construct($vid_id = '')
     {
         $this->vid_id = $vid_id;
         $this->status = $this->init();
     }
 
+    /**
+     * Populate the class variables based on the provided ID
+     *
+     * @return array
+     */
     protected function init()
     {
         $matched = preg_match('/(?:youtube\.com\/\S*(?:(?:\/e(?:mbed))?\/|watch\?(?:\S*?&?v\=))|youtu\.be\/)([a-zA-Z0-9_-]{6,11})/',
@@ -61,14 +95,24 @@ class Downloader
         return ['success' => true, 'error' => null];
     }
 
+    /**
+     * Run a cURL request to a URL
+     *
+     * @param string $URL
+     * @return mixed
+     */
     protected function get($URL)
     {
-        $ch = curl_init();
-        curl_setopt($ch, CURLOPT_URL, $URL);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-        $tmp = curl_exec($ch);
-        curl_close($ch);
-        return $tmp;
+        $connection = curl_init();
+        curl_setopt_array($connection, [
+            CURLOPT_URL => $URL,
+            CURLOPT_SSL_VERIFYPEER => 0,
+            CURLOPT_RETURNTRANSFER => 1,
+        ]);
+
+        $response = curl_exec($connection);
+        curl_close($connection);
+
+        return $response;
     }
 }
