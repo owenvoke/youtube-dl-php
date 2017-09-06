@@ -31,7 +31,7 @@ if (!$video->status['success']) {
 <body>
 <div class="container">
     <div class="page-header">
-        <h1><?= $video->info->title ?></h1>
+        <h1><?= $video->info['title'] ?></h1>
     </div>
 
     <?php if (isset($video->rvs['iurlhq'])) { ?>
@@ -46,8 +46,8 @@ if (!$video->status['success']) {
                 Video ID
             </th>
             <td>
-                <a target="_blank" href="<?= \pxgamer\YDP\App::YOUTUBE_URL ?>/watch/?v=<?= $video->info->video_id ?>">
-                    <span><?= $video->info->video_id ?></span>
+                <a target="_blank" href="<?= \pxgamer\YDP\App::YOUTUBE_URL ?>/watch/?v=<?= $video->info['video_id'] ?>">
+                    <span><?= $video->info['video_id'] ?></span>
                     <span class="fa fa-fw fa-link"></span>
                 </a>
             </td>
@@ -57,8 +57,8 @@ if (!$video->status['success']) {
                 Uploaded By
             </th>
             <td>
-                <a target="_blank" href="<?= \pxgamer\YDP\App::YOUTUBE_URL ?>/channel/<?= $video->info->ucid ?>">
-                    <span><?= $video->info->author ?></span>
+                <a target="_blank" href="<?= \pxgamer\YDP\App::YOUTUBE_URL ?>/channel/<?= $video->info['ucid'] ?>">
+                    <span><?= $video->info['author'] ?></span>
                     <span class="fa fa-fw fa-link"></span>
                 </a>
             </td>
