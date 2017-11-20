@@ -31,12 +31,12 @@ if (!$video->status['success']) {
 <body>
 <div class="container">
     <div class="page-header">
-        <h1><?= $video->info['title'] ?></h1>
+        <h1><?php echo $video->info['title'] ?></h1>
     </div>
 
     <?php if (isset($video->rvs['iurlhq'])) { ?>
         <div class="form-group">
-            <img class="img-thumbnail" src="<?= $video->rvs['iurlhq'] ?>"/>
+            <img class="img-thumbnail" src="<?php echo $video->rvs['iurlhq'] ?>"/>
         </div>
     <?php } ?>
 
@@ -46,8 +46,8 @@ if (!$video->status['success']) {
                 Video ID
             </th>
             <td>
-                <a target="_blank" href="<?= \pxgamer\YDP\App::YOUTUBE_URL ?>/watch/?v=<?= $video->info['video_id'] ?>">
-                    <span><?= $video->info['video_id'] ?></span>
+                <a target="_blank" href="<?php echo \pxgamer\YDP\App::YOUTUBE_URL ?>/watch/?v=<?php echo $video->info['video_id'] ?>">
+                    <span><?php echo $video->info['video_id'] ?></span>
                     <span class="fa fa-fw fa-link"></span>
                 </a>
             </td>
@@ -57,8 +57,8 @@ if (!$video->status['success']) {
                 Uploaded By
             </th>
             <td>
-                <a target="_blank" href="<?= \pxgamer\YDP\App::YOUTUBE_URL ?>/channel/<?= $video->info['ucid'] ?>">
-                    <span><?= $video->info['author'] ?></span>
+                <a target="_blank" href="<?php echo \pxgamer\YDP\App::YOUTUBE_URL ?>/channel/<?php echo $video->info['ucid'] ?>">
+                    <span><?php echo $video->info['author'] ?></span>
                     <span class="fa fa-fw fa-link"></span>
                 </a>
             </td>
@@ -87,16 +87,16 @@ if (!$video->status['success']) {
                 <?php foreach ($video->formats as $f) { ?>
                     <tr>
                         <th>
-                            <?= $f['quality'] ?>
+                            <?php echo $f['quality'] ?>
                         </th>
                         <td>
-                            <a target="_blank" href="<?= $f['url'] ?>">
-                                <?= explode('/', $f['type'])[1] ?>
+                            <a target="_blank" href="<?php echo $f['url'] ?>">
+                                <?php echo explode('/', $f['type'])[1] ?>
                             </a>
                         </td>
                         <td>
-                            <a download href="<?= $f['url'] ?>">
-                                <?= explode('/', $f['type'])[1] ?>
+                            <a download href="<?php echo $f['url'] ?>">
+                                <?php echo explode('/', $f['type'])[1] ?>
                             </a>
                         </td>
                     </tr>
