@@ -28,14 +28,6 @@ $ composer create-project pxgamer/youtube-dl-php
 
 ## Usage
 
-Demo: https://youtube-dl-php.pxgamer.xyz
-
-- Start a new instance of the site with Composer using `composer create-project pxgamer/youtube-dl-php`
-- Install via Composer using `composer require pxgamer/youtube-dl-php`
-- Require the `src/App.php` and `src/Downloader.php` files
-
-Then call the `Downloader` class using:
-
 ```php
 $video = new pxgamer\YDP\Downloader(VIDEO_ID_OR_URL);
 ```
@@ -46,6 +38,7 @@ ID          | Default | Type    | Description
 
 #### Related
 
+[Live Demo](https://youtube-dl-php.pxgamer.xyz)
 [User Script for YouTube](https://greasyfork.org/en/scripts/23560)
 
 ## Change log
