@@ -48,8 +48,7 @@ class Downloader
     }
 
     /**
-     * Populate the class variables based on the provided ID
-     *
+     * Populate the class variables based on the provided ID.
      * @return array
      */
     protected function init()
@@ -114,7 +113,7 @@ class Downloader
     }
 
     /**
-     * Run a cURL request to a URL
+     * Run a cURL request to a URL.
      * @param string $URL
      * @return mixed
      */
