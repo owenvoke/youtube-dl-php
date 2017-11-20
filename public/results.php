@@ -34,11 +34,13 @@ if (!$video->status['success']) {
         <h1><?php echo $video->info['title'] ?></h1>
     </div>
 
-    <?php if (isset($video->rvs['iurlhq'])) { ?>
+    <?php if (isset($video->rvs['iurlhq'])) {
+    ?>
         <div class="form-group">
             <img class="img-thumbnail" src="<?php echo $video->rvs['iurlhq'] ?>"/>
         </div>
-    <?php } ?>
+    <?php
+} ?>
 
     <table class="table">
         <tr>
@@ -69,11 +71,13 @@ if (!$video->status['success']) {
         <li role="presentation" class="active">
             <a href="#main" aria-controls="main" role="tab" data-toggle="tab">Main Info</a>
         </li>
-        <?php if (isset($_REQUEST['debug'])) { ?>
+        <?php if (isset($_REQUEST['debug'])) {
+        ?>
             <li role="presentation">
                 <a href="#debug" aria-controls="debug" role="tab" data-toggle="tab">Debug Info</a>
             </li>
-        <?php } ?>
+        <?php
+    } ?>
     </ul>
     <br/>
     <div class="tab-content">
@@ -84,7 +88,8 @@ if (!$video->status['success']) {
                     <th>Streams <span class="fa fa-fw fa-play-circle"></span></th>
                     <th>Downloads <span class="fa fa-fw fa-download"></span></th>
                 </tr>
-                <?php foreach ($video->formats as $f) { ?>
+                <?php foreach ($video->formats as $f) {
+        ?>
                     <tr>
                         <th>
                             <?php echo $f['quality'] ?>
@@ -100,15 +105,18 @@ if (!$video->status['success']) {
                             </a>
                         </td>
                     </tr>
-                <?php } ?>
+                <?php
+    } ?>
             </table>
         </div>
 
-        <?php if (isset($_REQUEST['debug'])) { ?>
+        <?php if (isset($_REQUEST['debug'])) {
+        ?>
             <div role="tabpanel" class="tab-pane" id="debug">
                 <pre><?php var_dump($video) ?></pre>
             </div>
-        <?php } ?>
+        <?php
+    } ?>
     </div>
 </div>
 </body>
