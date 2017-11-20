@@ -38,8 +38,8 @@ ID          | Default | Type    | Description
 
 #### Related
 
-[Live Demo](https://youtube-dl-php.pxgamer.xyz)
-[User Script for YouTube](https://greasyfork.org/en/scripts/23560)
+- [Live Demo](https://youtube-dl-php.pxgamer.xyz)
+- [User Script for YouTube](https://greasyfork.org/en/scripts/23560)
 
 ## Change log
 
