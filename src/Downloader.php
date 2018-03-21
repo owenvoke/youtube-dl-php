@@ -8,6 +8,11 @@ namespace pxgamer\YDP;
 class Downloader
 {
     /**
+     * Constant base URL for YouTube
+     */
+    const YOUTUBE_URL = 'https://www.youtube.com';
+
+    /**
      * @var string
      */
     public $info_url;
@@ -67,7 +72,7 @@ class Downloader
 
         $this->vid_id = $matches[1];
 
-        $this->info_url = App::YOUTUBE_URL.'/get_video_info?&video_id='.$this->vid_id.'&asv=3&el=detailpage&hl=en_US';
+        $this->info_url = self::YOUTUBE_URL.'/get_video_info?&video_id='.$this->vid_id.'&asv=3&el=detailpage&hl=en_US';
         $this->info_url = $this->get($this->info_url);
 
         $url = $type = '';
