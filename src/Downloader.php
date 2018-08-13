@@ -75,7 +75,6 @@ class Downloader
         $this->info_url = self::YOUTUBE_URL.'/get_video_info?&video_id='.$this->vid_id.'&asv=3&el=detailpage&hl=en_US';
         $this->info_url = $this->get($this->info_url);
 
-        $url = $type = '';
         parse_str($this->info_url, $this->info);
 
         if (!isset($this->info['url_encoded_fmt_stream_map'])) {
@@ -91,18 +90,19 @@ class Downloader
         );
 
         $i = 0;
-        $ipbits = $ip = $expire = $sig = $quality = $itag = '';
         foreach ($this->exploded_encodes as $format) {
-            parse_str($format);
-            $this->formats[$i]['itag'] = $itag;
-            $this->formats[$i]['quality'] = $quality;
-            $type = explode(';', $type);
+            parse_str($format, $formatData);
+            $this->formats[$i]['itag'] = $formatData['itag'];
+            $this->formats[$i]['quality'] = $formatData['quality'];
+
+            $type = explode(';', $formatData['type']);
             $this->formats[$i]['type'] = $type[0];
-            $this->formats[$i]['url'] = urldecode($url).'&signature='.$sig;
-            parse_str(urldecode($url));
-            $this->formats[$i]['expires'] = date("G:i:s T", strtotime($expire));
-            $this->formats[$i]['ipbits'] = $ipbits;
-            $this->formats[$i]['ip'] = $ip;
+            $this->formats[$i]['url'] = urldecode($formatData['url']);
+
+            parse_str(urldecode($formatData['url']), $urlSegments);
+            $this->formats[$i]['expires'] = date("G:i:s T", strtotime($urlSegments['expire']));
+            $this->formats[$i]['ipbits'] = $urlSegments['ipbits'];
+            $this->formats[$i]['ip'] = $urlSegments['ip'];
             $i++;
         }
 

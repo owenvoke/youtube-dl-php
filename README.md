@@ -9,15 +9,6 @@
 
 A quick and easy YouTube downloader/parser written in PHP.
 
-## Structure
-
-```
-public/
-src/
-tests/
-vendor/
-```
-
 ## Install
 
 Via Composer
@@ -38,7 +29,6 @@ ID          | Default | Type    | Description
 
 #### Related
 
-- [Live Demo](https://youtube-dl-php.pxgamer.xyz)
 - [User Script for YouTube](https://greasyfork.org/en/scripts/23560)
 
 ## Change log
