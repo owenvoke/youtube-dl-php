@@ -7,7 +7,6 @@ namespace pxgamer\YDP;
  */
 class Downloader
 {
-
     /**
      * @var string
      */
