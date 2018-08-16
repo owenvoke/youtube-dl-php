@@ -100,9 +100,11 @@ class Downloader
             $this->formats[$i]['url'] = urldecode($formatData['url']);
 
             parse_str(urldecode($formatData['url']), $urlSegments);
-            $this->formats[$i]['expires'] = date("G:i:s T", strtotime($urlSegments['expire']));
-            $this->formats[$i]['ipbits'] = $urlSegments['ipbits'];
-            $this->formats[$i]['ip'] = $urlSegments['ip'];
+            $this->formats[$i]['expires'] = (isset($urlSegments['expire'])) ?
+                date('G:i:s T', strtotime($urlSegments['expire'])) :
+                null;
+            $this->formats[$i]['ipbits'] = $urlSegments['ipbits'] ?? null;
+            $this->formats[$i]['ip'] = $urlSegments['ip'] ?? null;
             $i++;
         }
 
