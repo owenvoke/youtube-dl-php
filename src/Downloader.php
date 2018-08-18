@@ -54,7 +54,7 @@ class Downloader
     protected function init()
     {
         $matched = preg_match(
-            '/(?:youtube\.com\/\S*(?:(?:\/e(?:mbed))?\/|watch\?(?:\S*?&?v\=))|youtu\.be\/)([a-zA-Z0-9_-]{6,11})/',
+            '/(?:youtube\.com\/\S*(?:(?:\/e(?:mbed))?\/|watch\?(?:\S*?&?v\=))|youtu\.be\/)?([a-zA-Z0-9_-]{6,11})/',
             $this->vid_id,
             $matches
         );
